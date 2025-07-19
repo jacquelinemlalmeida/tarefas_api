@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tarefa de fundamentos avançados de Ruby do MBA de desenvolvimento avançado de software.
 
-Things you may want to cover:
+Setar Ruby para 3.1.0
+Rodar bundle install
+Rodar rails db:create rails db:migrate
+Rodar rails db:seeds para popular e brincar com a API.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Você pode encontrar uma documentação simples da API em http://localhost:3000/api-docs feita com swagger.
