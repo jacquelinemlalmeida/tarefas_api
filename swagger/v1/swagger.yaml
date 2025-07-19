@@ -1,0 +1,114 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/tasks":
+    get:
+      summary: list tasks
+      tags:
+      - Tasks
+      parameters:
+      - name: status
+        in: query
+        description: Filtrar por status (em_andamento, em_atraso, concluida, cancelada)
+        schema:
+          type: string
+      - name: title
+        in: query
+        description: Filtrar por título
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Filtrar por descrição
+        schema:
+          type: string
+      - name: created_at
+        in: query
+        format: date
+        description: Filtrar por data de criação (YYYY-MM-DD)
+        schema:
+          type: string
+      - name: due_date
+        in: query
+        format: date
+        description: Filtrar por data de entrega (YYYY-MM-DD)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create task
+      tags:
+      - Tasks
+      parameters: []
+      responses:
+        '201':
+          description: created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+              required:
+              - title
+  "/tasks/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: Task ID
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show task
+      tags:
+      - Tasks
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update task
+      tags:
+      - Tasks
+      parameters: []
+      responses:
+        '200':
+          description: updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+    delete:
+      summary: cancel task
+      tags:
+      - Tasks
+      responses:
+        '200':
+          description: cancelled
+servers:
+- url: http://localhost:3000
