@@ -47,6 +47,6 @@ end
 
 gem "rspec-rails", "~> 8.0", :groups => [:development, :test]
 
-gem "rswag", "~> 2.16"
+gem "rswag", "~> 2.17"
 
 gem 'whenever', require: false
